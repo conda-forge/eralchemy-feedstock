@@ -11,7 +11,7 @@ source:
   sha256: be992624878278195c3240b90523acb35d97453f1a350c44b4311d4333940f0d
 
 build:
-  number: 0
+  number: 1
   noarch: python
   entry_points:
     - eralchemy=eralchemy.main:cli
@@ -24,7 +24,7 @@ requirements:
   run:
     - pygraphviz
     - python >=3.6
-    - sqlalchemy
+    - sqlalchemy <1.4
 
 test:
   imports:

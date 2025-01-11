@@ -7,11 +7,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/ERAlchemy-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/ERAlchemy-{{ version }}.tar.gz
   sha256: be992624878278195c3240b90523acb35d97453f1a350c44b4311d4333940f0d
 
 build:
-  number: 1
+  number: 2
   noarch: python
   entry_points:
     - eralchemy=eralchemy.main:cli
@@ -20,10 +20,10 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python {{ python_min }}
   run:
     - pygraphviz
-    - python >=3.6
+    - python >={{ python_min }}
     - sqlalchemy <1.4
 
 test:
@@ -34,6 +34,7 @@ test:
     - eralchemy --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/Alexis-benoist/eralchemy

@@ -2,15 +2,15 @@ schema_version: 1
 
 context:
   name: eralchemy
-  version: 1.2.10
+  version: "1.5.0"
 
 package:
   name: ${{ name|lower }}
   version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/ERAlchemy-${{ version }}.tar.gz
-  sha256: be992624878278195c3240b90523acb35d97453f1a350c44b4311d4333940f0d
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
+  sha256: fa66a3cd324abd27ad8e65908d7af48d8198c0c185aeb22189cf40516de25941
 
 build:
   number: 3
@@ -28,7 +28,7 @@ requirements:
   run:
     - pygraphviz
     - python >=${{ python_min }}
-    - sqlalchemy <1.4
+    - sqlalchemy >=1.4.18
 
 tests:
   - python:

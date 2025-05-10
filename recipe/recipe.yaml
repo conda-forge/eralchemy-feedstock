@@ -28,7 +28,7 @@ requirements:
   run:
     - pygraphviz
     - python >=${{ python_min }}
-    - sqlalchemy <1.4
+    - sqlalchemy >=1.4.18
 
 tests:
   - python:

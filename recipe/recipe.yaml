@@ -1,0 +1,54 @@
+schema_version: 1
+
+context:
+  name: eralchemy
+  version: 1.2.10
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/ERAlchemy-${{ version }}.tar.gz
+  sha256: be992624878278195c3240b90523acb35d97453f1a350c44b4311d4333940f0d
+
+build:
+  number: 3
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv
+  python:
+    entry_points:
+      - eralchemy=eralchemy.main:cli
+
+requirements:
+  host:
+    - pip
+    - python ${{ python_min }}.*
+    - setuptools
+  run:
+    - pygraphviz
+    - python >=${{ python_min }}
+    - sqlalchemy <1.4
+
+tests:
+  - python:
+      imports:
+        - eralchemy
+      python_version: ${{ python_min }}.*
+  - requirements:
+      run:
+        - pip
+        - python ${{ python_min }}.*
+    script:
+      - pip check
+      - eralchemy --help
+
+about:
+  summary: Simple entity relation (ER) diagrams generation
+  license: Apache-2.0
+  license_file: LICENSE.md
+  homepage: https://github.com/Alexis-benoist/eralchemy
+
+extra:
+  recipe-maintainers:
+    - janjagusch

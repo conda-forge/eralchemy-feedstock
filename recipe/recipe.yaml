@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: eralchemy
-  version: "1.6.0"
+  version: "1.7.0"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
-  sha256: 8f82d329ec0cd9c04469adf36b8889b5ea2583e7e53c0fd2e784e176e1e27c7a
+  sha256: 926376fdab2e1ca8eec05698c457d17718ed1458fa574b67e815c43ae52b377a
 
 build:
   number: 0
